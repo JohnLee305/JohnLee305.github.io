@@ -4,25 +4,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>가상 키보드</title>
+    <title>가상 키보드 데모</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
     <script src="./hangul.js" type="text/javascript"></script>
     <script src="./hunmin-keyboard.js" type="text/javascript"></script>
     <link rel="stylesheet" href="./hunmin-keyboard.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #333;
+            text-align: center;
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        button.demobtn {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            transition: background-color 0.3s;
+        }
+
+        button.demobtn:hover {
+            background-color: #45a049;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .status {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+    </style>
 </head>
 
 <body>
-    <h2>각 버튼마다 사이즈를 줄 수 있습니다.</h2>
-    <br> <button onclick="toggleKeyboard(this,'BIG');"> Keyboard(BIG) </button>
-    <br> <button onclick="toggleKeyboard(this,'DEFAULT');">Keyboard(Default)</button>
-    <br> <button onclick="toggleKeyboard(this,'SMALL');">Keyboard(small)</button>
-    <br>
-    <h2> 한번 키보드를 열면, 어떤 인풋이든 focus를 준 뒤, 가상키보드 자판을 클릭하여 사용할 수 있습니다.</h2>
-    <input type="text" placeholder="입력하세요">
-    <input type="text" placeholder="입력하세요">
-    <input type="text" placeholder="입력하세요">
+    <div class="container">
+        <h2>가상 키보드 데모</h2>
+        <p style="text-align: center;">아래 버튼을 클릭하여 다양한 크기의 가상 키보드를 열어보세요.</p>
+        <div class="button-group">
+            <button class="demobtn" onclick="toggleKeyboard(this,'BIG');">키보드 (대)</button>
+            <button class="demobtn" onclick="toggleKeyboard(this,'DEFAULT');">키보드 (기본)</button>
+            <button class="demobtn" onclick="toggleKeyboard(this,'SMALL');">키보드 (소)</button>
+        </div>
+        <p style="text-align: center;">키보드가 열리면, 아래 입력 필드 중 하나에 포커스를 주고 키보드를 사용해 보세요.</p>
+        <div class="input-group">
+            <input type="text" placeholder="여기에 입력하세요">
+            <input type="text" placeholder="여기에 입력하세요">
+            <input type="text" placeholder="여기에 입력하세요">
+        </div>
+    </div>
+
 </body>
 
 </html>
